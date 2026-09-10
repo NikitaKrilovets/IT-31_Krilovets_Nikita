@@ -1,0 +1,15 @@
+<h1>Список книг</h1>
+
+<div *ngFor="let book of books">
+
+  <h2>{{ book.title }}</h2>
+
+  <p>Автор: {{ book.author }}</p>
+
+  <a [routerLink]="['/book', book.id]">
+    Детальніше
+  </a>
+
+  <hr>
+
+</div>

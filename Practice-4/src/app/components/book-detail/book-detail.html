@@ -1,0 +1,15 @@
+<div *ngIf="book; else notFound">
+
+  <h1>{{ book.title }}</h1>
+
+  <p>Автор: {{ book.author }}</p>
+
+  <p>Кількість сторінок: {{ book.pages }}</p>
+
+</div>
+
+<ng-template #notFound>
+
+  <h1>Книгу не знайдено</h1>
+
+</ng-template>
