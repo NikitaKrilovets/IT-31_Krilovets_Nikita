@@ -1,0 +1,81 @@
+<h2>Додати книгу</h2>
+
+<form #bookForm="ngForm" (ngSubmit)="addBook(bookForm)">
+
+  <label>Назва книги:</label>
+  <br>
+  <input
+    type="text"
+    name="title"
+    [(ngModel)]="newBook.title"
+    required
+    minlength="2"
+    maxlength="50"
+    #title="ngModel"
+  >
+
+  <div *ngIf="title.invalid && title.touched">
+    <p *ngIf="title.errors?.['required']">
+      Назва книги обов'язкова
+    </p>
+
+    <p *ngIf="title.errors?.['minlength']">
+      Назва повинна містити мінімум 2 символи
+    </p>
+  </div>
+
+  <br><br>
+
+  <label>Автор:</label>
+  <br>
+  <input
+    type="text"
+    name="author"
+    [(ngModel)]="newBook.author"
+    required
+    minlength="3"
+    maxlength="50"
+    #author="ngModel"
+  >
+  
+  <div *ngIf="author.invalid && author.touched">
+    <p *ngIf="author.errors?.['required']">
+      Вкажіть автора
+    </p>
+
+    <p *ngIf="author.errors?.['minlength']">
+      Ім'я автора повинно містити мінімум 3 символи
+    </p>
+  </div>
+
+  <br><br>
+
+  <label>Опис книги:</label>
+  <br>
+  <textarea
+    name="description"
+    [(ngModel)]="newBook.description"
+    required
+    minlength="10"
+    maxlength="200"
+    #description="ngModel"
+  ></textarea>
+
+  <br><br>
+
+  <button type="submit" [disabled]="bookForm.invalid">
+    Додати книгу
+  </button>
+
+</form>
+
+<br>
+<hr>
+
+<h1>Книги</h1>
+
+<div *ngFor="let book of books">
+  <h3>{{ book.title }}</h3>
+  <p>Автор: {{ book.author }}</p>
+  <p>Опис: {{ book.description }}</p>
+</div>
