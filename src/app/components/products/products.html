@@ -1,0 +1,10 @@
+<h1>Список товарів</h1>
+
+@for (product of products; track product.id) {
+  <div>
+    <h2>{{ product.name }}</h2>
+    <p>Виробник: {{ product.manufacturer }}</p>
+    <p>{{ product.description }}</p>
+    <a [routerLink]="['/product', product.id]">Детальніше</a>
+  </div>
+}

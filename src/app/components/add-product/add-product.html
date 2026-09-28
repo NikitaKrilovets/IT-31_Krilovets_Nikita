@@ -1,0 +1,59 @@
+<h1>Додати товар</h1>
+
+<form #productForm="ngForm" (ngSubmit)="addProduct()">
+
+  <label>Назва:</label>
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="name"
+    required
+    minlength="3"
+    maxlength="50"
+    #nameInput="ngModel"
+  >
+
+  @if (nameInput.invalid && nameInput.touched) {
+    <p>Назва повинна містити від 3 до 50 символів.</p>
+  }
+
+  <br><br>
+
+  <label>Виробник:</label>
+  <input
+    type="text"
+    name="manufacturer"
+    [(ngModel)]="manufacturer"
+    required
+    minlength="2"
+    maxlength="40"
+    #manufacturerInput="ngModel"
+  >
+
+  @if (manufacturerInput.invalid && manufacturerInput.touched) {
+    <p>Виробник повинен містити від 2 до 40 символів.</p>
+  }
+
+  <br><br>
+
+  <label>Опис:</label>
+  <br>
+  <textarea
+    name="description"
+    [(ngModel)]="description"
+    required
+    minlength="10"
+    #descriptionInput="ngModel"
+  ></textarea>
+
+  @if (descriptionInput.invalid && descriptionInput.touched) {
+    <p>Опис повинен містити мінімум 10 символів.</p>
+  }
+
+  <br><br>
+
+  <button type="submit" [disabled]="productForm.invalid">
+    Додати товар
+  </button>
+
+</form>
