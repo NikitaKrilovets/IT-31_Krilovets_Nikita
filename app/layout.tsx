@@ -24,7 +24,7 @@ export default function RootLayout({
         <main>{children}</main>
 
         <footer>
-          <p>Навчальний сайт</p>
+          <p>Крутий сайт</p>
         </footer>
       </body>
     </html>
