@@ -1,0 +1,21 @@
+"use client";
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  return (
+    <div className="error">
+      <h2>Сталася помилка</h2>
+
+      <p>{error.message}</p>
+
+      <button onClick={() => reset()}>
+        Спробувати ще раз
+      </button>
+    </div>
+  );
+}
