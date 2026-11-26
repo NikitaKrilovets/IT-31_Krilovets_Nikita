@@ -32,17 +32,14 @@ export default function App() {
 
       <Pressable
         style={styles.button}
-        onPress={() =>
-          Alert.alert('Вітаю!', 'Ви створили свій перший застосунок!')
-        }
+        onPress={() => Alert.alert('Вітаю!', 'Ви створили свій перший застосунок!')}
       >
         <Text style={styles.buttonText}>Привітатися</Text>
       </Pressable>
 
       <Pressable
         style={styles.secondButton}
-        onPress={() =>
-          Alert.alert(
+        onPress={() => Alert.alert(
             'Про застосунок',
             'Цей застосунок створено в рамках практичної роботи з React Native та Expo.'
           )
